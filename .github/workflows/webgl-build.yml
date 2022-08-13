@@ -24,7 +24,7 @@ jobs:
         with:
           name: Build
           path: build
-    output:
+    outputs:
       gameVersion: ${{ env.VERSION }}
   upload-to-itch:
     needs: build-game
