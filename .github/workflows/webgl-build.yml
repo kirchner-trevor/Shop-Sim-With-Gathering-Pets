@@ -39,6 +39,6 @@ jobs:
           path: build
       - name: Publish game to itch.io
         run: |
-          butler push build https://tobiusthegrand.itch.io/shop-sim-with-gathering-pets:webgl --userversion ${{ env.RELEASE_VERSION }}
+          butler push build tobiusthegrand/shop-sim-with-gathering-pets:webgl --userversion ${{ env.RELEASE_VERSION }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
