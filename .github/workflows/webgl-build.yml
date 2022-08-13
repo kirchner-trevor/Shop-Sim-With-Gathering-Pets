@@ -28,8 +28,6 @@ jobs:
     needs: build-game
     runs-on: ubuntu-latest
     steps:
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Set up butler
         uses: jdno/setup-butler@v1
       - name: Download build
@@ -39,6 +37,6 @@ jobs:
           path: build
       - name: Publish game to itch.io
         run: |
-          butler push build tobiusthegrand/shop-sim-with-gathering-pets:webgl --userversion ${{ env.RELEASE_VERSION }}
+          butler push build tobiusthegrand/shop-sim-with-gathering-pets:webgl --userversion ${{ env.VERSION }}
         env:
           BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
